@@ -22,11 +22,18 @@
         { "date": "2023-01-06", "amount": "£80", "name": "Shoes" }
       ]
     },
-    {
-      "name": "Other",
+       {
+      "name": "F&B",
       "transactions": [
-        { "date":  "2023-09-12", "amount":  "£25", "name":  "Miscellaneous 1"},
-        { "date":  "2023-09-11", "amount":  "£10", "name":  "Miscellaneous 2"}
+        { "date":  "2023-09-12", "amount":  "£250", "name":  "Miscellaneous 1"},
+        { "date":  "2023-09-11", "amount":  "£100", "name":  "Miscellaneous 2"}
+      ]
+    },
+    {
+      "name": "Childcare",
+      "transactions": [
+        { "date":  "2023-09-12", "amount":  "£10", "name":  "Miscellaneous 1"},
+        { "date":  "2023-09-11", "amount":  "£30", "name":  "Miscellaneous 2"}
       ]
     }
   ]
