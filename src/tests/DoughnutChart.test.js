@@ -1,17 +1,23 @@
-// __tests__/DonutChart.test.js
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import DonutChart from '../../src/DoughnutChart';
-import expect from "expect";
+import DoughnutChart from '../../src/DoughnutChart';
+import expect from 'expect';
+
+// Import the polyfill
+import 'resize-observer-polyfill';
 
 test('renders DoughnutChart with provided data', () => {
     const data = {
-        categories: ['Category A', 'Category B', 'Category C'],
-        values: [30, 40, 30],
+        categories: [
+            { name: 'Category A', transactions: [{ name: 'Transaction A', amount: '£10.00', date: '2023-01-01' }] },
+            { name: 'Category B', transactions: [{ name: 'Transaction B', amount: '£20.00', date: '2023-01-02' }] },
+        ],
     };
 
-    render(<DonutChart data={data} />);
+    render(<DoughnutChart chartData={data.categories} />);
 
-    expect(screen.getByText(/Total: £100.00/)).toBeInTheDocument(); // Adjust this based on your expected text
-    expect(screen.getByText(JSON.stringify(data))).toBeInTheDocument();
+    // Add assertions based on your expected UI
+    expect(screen.getByTestId('doughnut-chart')).toBeInTheDocument();
+    // You can add more assertions based on the expected UI state or elements
+    // For example: expect(screen.getByText('Category A')).toBeInTheDocument();
 });

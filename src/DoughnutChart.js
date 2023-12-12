@@ -58,27 +58,29 @@ function DoughnutChart({ chartData }) {
 
     return (
         <div className="chart" data-testid="doughnut-chart">
-            <Doughnut
-                data={{
-                    labels: chartData.map((category) => category.name),
-                    datasets: [
-                        {
-                            label: 'Total Amount Spent',
-                            data: chartData.map((category) =>
-                                category.transactions.reduce(
-                                    (categoryTotal, transaction) =>
-                                        categoryTotal + parseFloat(transaction.amount.replace('£', '')),
-                                    0
-                                )
-                            ),
-                            backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
-                            borderColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
-                        },
-                    ],
-                }}
-                options={options}
-                plugins={plugins}
-            />
+            {chartData && (  // Add a check here
+                <Doughnut
+                    data={{
+                        labels: chartData.map((category) => category.name),
+                        datasets: [
+                            {
+                                label: 'Total Amount Spent',
+                                data: chartData.map((category) =>
+                                    category.transactions.reduce(
+                                        (categoryTotal, transaction) =>
+                                            categoryTotal + parseFloat(transaction.amount.replace('£', '')),
+                                        0
+                                    )
+                                ),
+                                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+                                borderColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
+                            },
+                        ],
+                    }}
+                    options={options}
+                    plugins={plugins}
+                />
+            )}
             {selectedCategory && (
                 <div>
                     <h3>{selectedCategory.name}</h3>
